@@ -64,7 +64,7 @@ const seedsSchema = new mongoose.Schema({
     },
     timeofPlanting: {
         type: String,
-        timestamp: true
+        timestamp: true,
     },
     coordinates: {
         type: String,
@@ -104,10 +104,6 @@ const seedsSchema = new mongoose.Schema({
 });
 const seed = mongoose.model('seed', seedsSchema);
 
-// Define a middleware function to capture the time when `timeOfPlantation` is set
-// async function() {
-//     timeofPl
-//   };
 
 module.exports = {
     customer: customer,

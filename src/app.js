@@ -57,22 +57,7 @@ const seed = new Customer.seed({
     seedHealth: "Healthy",
     isTree: true,
     isDead: false
-})
-// seed.pre('save', function(next) {
-//     if(this.isNew) {
-//         this.localtimeofPlantation = this.timeofplanting;
-//         this.newAge = this.age;
-//     }
-//     next();
-// });
-// save()
-// .then(() => {
-//     const timeOfPlantation = seed.timeofPlanting;
-//     console.log(timeOfPlantation);
-// })
-// .catch((e) => {
-//     res.status(500).json({error: e.message});
-// });
+});
 
 app.get('/',(req,res) => {
     res.json(seed);
@@ -162,7 +147,6 @@ app.post('/api/users', async (req, res) => {
 });
 
 
-//age increases by 1 after 24 hrs from the timeOfPlantation // 
 app.put('/api/customers/seeds/:id', async (req, res) => {
     try {
         const seedId = req.params.id;
@@ -175,26 +159,6 @@ app.put('/api/customers/seeds/:id', async (req, res) => {
     }
 });
 
-// function incrementAfter24Hours() {
-//     const currentTime = new Date();
-//     const lastIncrementTime = localtimeofPlantation; 
-//     const elapsedTime = currentTime - lastIncrementTime;
-    
-//     // Check if 24 hours have passed
-//     if (elapsedTime >= 24 * 60 * 60 * 1000) {
-//       newAge++;
-//       lastIncrementTime = currentTime;
-//       console.log('Age incremented:', newAge);
-//     }
-//   };
-  
-//   // Start the timer to check for increments every second
-//   setInterval(incrementAfter24Hours, 60*1000);
-  
-//   // API endpoint to get the current counter value
-//   app.get('/seed/age', (req, res) => {
-//     res.json({ counter });
-//   });
 
 const start = async() => { 
     try {
