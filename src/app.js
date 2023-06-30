@@ -5,6 +5,8 @@ const dotenv = require('dotenv');
 const app = express();
 mongoose.set('strictQuery',false);
 
+const customerRouter = require('./routers/customerRouter')
+
 app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 
@@ -35,6 +37,10 @@ const seed = new Customer.seed({
 
 
 // ###API CALLS####
+
+app.use('/customers', customerRouter)
+
+
 app.get('/',(req,res) => {
     res.send(seed);
 });
